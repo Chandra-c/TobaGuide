@@ -1,9 +1,9 @@
 import React from 'react'
-import Login from './screens/auth/Login'
+import Stack from './routes/stack-routes'
 
 function App() {
     return (
-        <Login />
+        <Stack />
     )
 }
 

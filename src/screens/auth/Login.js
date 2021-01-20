@@ -7,26 +7,45 @@ import { Button, CustomView } from '../../components/'
 const { width, height } = Dimensions.get('window')
 
 
-function Login() {
+function Login({ navigation }) {
 
-    const Form = () => (
-        <View style={styles.containerForm}>
-            <TextInput placeholder="Username" style={styles.textInput} />
-            <TextInput placeholder="Password" style={styles.textInput} />
-            <View style={styles.action}>
-                <TouchableOpacity>
-                    <Text>Sign Up</Text>
-                </TouchableOpacity>
-                <TouchableOpacity>
-                    <Text>Lost Password</Text>
-                </TouchableOpacity>
+    const Form = () => {
+        const navigateSignUp = () => {
+            navigation.navigate('Register')
+        }
+        const navigateForgotPassword = () => {
+            navigation.navigate('ForgotPassword')
+        }
+        return (
+            <View style={styles.containerForm}>
+                <View style={styles.inisial}>
+                    <Text>Email</Text>
+                </View>
+                <TextInput placeholder="" style={styles.textInput} />
+                <View style={styles.inisial}>
+                    <Text>Password</Text>
+                </View>
+                <TextInput placeholder="" secureTextEntry={true} style={styles.textInput} />
+                <View style={styles.action}>
+                    <TouchableOpacity onPress={navigateSignUp}>
+                        <Text>Sign Up</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={navigateForgotPassword}>
+                        <Text>Lost Password</Text>
+                    </TouchableOpacity>
+                </View>
+                <Button title="Connect" />
             </View>
-            <Button title="Sign In" />
-        </View>
-    )
+        )
+    }
 
     const TopImage = () => (
         <View style={styles.containerImage}>
+            <View style={styles.containerLogo}>
+                <Image source={require('../../assets/logo.png')} style={styles.logo} />
+                <Text style={styles.textLogo}>Toba Guide</Text>
+                <Text style={styles.textLogoSub}>Experience the real Lake Toba</Text>
+            </View>
             <Image source={require('../../assets/background.png')} style={styles.imageTop} />
         </View>
     )
@@ -68,6 +87,35 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
         alignItems: 'center',
         justifyContent: 'space-between',
+    },
+    inisial: {
+        width: width * 0.95,
+        marginBottom: 10
+    },
+    logo: {
+        height: width * 0.4,
+        width: width * 0.4,
+        alignSelf: 'center'
+    },
+    containerLogo: {
+        position: 'absolute',
+        zIndex: 1000,
+        top: height * 0.25,
+        alignSelf: 'center',
+        justifyContent: 'center',
+        alignContent: 'center',
+        alignItems: 'center'
+    },
+    textLogo: {
+        color: 'white',
+        fontSize: 50,
+        fontWeight: '700',
+        marginTop: 10
+    },
+    textLogoSub: {
+        color: 'white',
+        fontSize: 20,
+        marginTop: 10
     }
 })
 
