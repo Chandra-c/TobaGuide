@@ -16,6 +16,9 @@ function Login({ navigation }) {
         const navigateForgotPassword = () => {
             navigation.navigate('ForgotPassword')
         }
+        const navigateHome = () => {
+            navigation.navigate('Home')
+        }
         return (
             <View style={styles.containerForm}>
                 <View style={styles.inisial}>
@@ -34,7 +37,7 @@ function Login({ navigation }) {
                         <Text>Lost Password</Text>
                     </TouchableOpacity>
                 </View>
-                <Button title="Connect" />
+                <Button title="Connect" onPress={navigateHome} />
             </View>
         )
     }

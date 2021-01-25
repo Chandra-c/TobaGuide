@@ -8,6 +8,7 @@ target 'TobaGuide' do
 
   use_react_native!(:path => config["reactNativePath"])
 
+
   target 'TobaGuideTests' do
     inherit! :complete
     # Pods for testing

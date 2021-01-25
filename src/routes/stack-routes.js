@@ -1,13 +1,16 @@
 import 'react-native-gesture-handler';
 
 import React from 'react';
-import {NavigationContainer} from '@react-navigation/native';
+import { NavigationContainer } from '@react-navigation/native';
 
-import {createStackNavigator, TransitionPresets} from '@react-navigation/stack';
+import { createStackNavigator, TransitionPresets } from '@react-navigation/stack';
 
 import Login from '../screens/auth/Login'
 import Register from '../screens/auth/Register'
 import ForgotPassword from '../screens/auth/ForgotPassword'
+import Home from '../screens/destination/Home'
+import DetailDestination from '../screens/destination/DetailDestination'
+import ListDestination from '../screens/destination/ListDestination'
 
 function Stack() {
   const PrivateStack = createStackNavigator();
@@ -21,6 +24,9 @@ function Stack() {
         <PrivateStack.Screen name="Login" component={Login} />
         <PrivateStack.Screen name="Register" component={Register} />
         <PrivateStack.Screen name="ForgotPassword" component={ForgotPassword} />
+        <PrivateStack.Screen name="Home" component={Home} />
+        <PrivateStack.Screen name="ListDestination" component={ListDestination} />
+        <PrivateStack.Screen name="DetailDestination" component={DetailDestination} />
       </PrivateStack.Navigator>
     </NavigationContainer>
   );
