@@ -1,6 +1,6 @@
 import { useNavigation } from '@react-navigation/native'
 import React from 'react'
-import { View, Text, StyleSheet, Dimensions, TextInput, FlatList, Image, TouchableOpacity, ScrollView } from 'react-native'
+import { View, Text, StyleSheet, Dimensions, TextInput, FlatList, Image, TouchableOpacity, ScrollView, Touchable } from 'react-native'
 import LinearGradient from 'react-native-linear-gradient'
 import { menu } from '../../mocks/menu'
 import { data } from '../../mocks/places'
@@ -16,7 +16,7 @@ function Home() {
             <View style={styles.containerHeader}>
                 <View style={styles.containerData}>
                     <Text style={styles.textHeader}>Wellcome back Chandra</Text>
-                    <View style={styles.avatar} />
+                    <Image source={require('../../assets/chandra.png')} style={styles.avatar} />
                 </View>
                 <TextInput placeholder="Search place here" style={styles.searchBar} />
             </View>
@@ -68,6 +68,14 @@ function Home() {
     }
 
     const Menu = () => {
+        const navigateMenu = (route) => {
+            if (route === 'Tour Guide') {
+                navigate('TourGuide')
+            }
+            else if (route == 'Waterfalls') {
+                navigate('ListDestination')
+            }
+        }
         return (
             <LinearGradient colors={['#112266', '#5E60CE', '#4EA8DE', '#56CFE1', '#72EFDD']} style={styles.containerMenu}>
                 <FlatList
@@ -77,8 +85,8 @@ function Home() {
                     keyExtractor={(item, index) => index.toString()}
                     renderItem={({ item }) => {
                         return (
-                            <TouchableOpacity style={styles.box}>
-                                <Image source={item.image} style={styles.imageMenu}/>
+                            <TouchableOpacity onPress={() => navigateMenu(item.name)} style={styles.box}>
+                                <Image source={item.image} style={styles.imageMenu} />
                                 <Text style={styles.textMenu}>{item.name}</Text>
                             </TouchableOpacity>
                         )

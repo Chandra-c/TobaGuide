@@ -1,5 +1,5 @@
 import React from 'react'
-import { Dimensions, Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
+import { Dimensions, Image, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
 
 import { Button, CustomView } from '../../components/'
 
@@ -54,10 +54,12 @@ function Login({ navigation }) {
     )
 
     return (
-        <CustomView>
-            <TopImage />
-            <Form />
-        </CustomView>
+        <ScrollView>
+            <CustomView>
+                <TopImage />
+                <Form />
+            </CustomView>
+        </ScrollView>
     )
 }
 

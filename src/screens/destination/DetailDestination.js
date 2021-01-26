@@ -1,11 +1,15 @@
 import React from 'react'
-import { View, Text, StyleSheet, Image, Dimensions } from 'react-native'
+import { View, Text, StyleSheet, Image, Dimensions, TouchableOpacity } from 'react-native'
 import { Header } from '../../components'
 
 const { width, height } = Dimensions.get('window')
 
-function DetailDestination({ route }) {
+function DetailDestination({ route, navigation }) {
     const { data } = route.params
+
+    const naigateTourGuide = () => {
+        navigation.navigate('TourGuide')
+    }
     return (
         <View style={styles.container}>
             <Header title={data.name} />
@@ -14,6 +18,12 @@ function DetailDestination({ route }) {
                 <View style={styles.containerView}>
                     <Text style={styles.textTitle}>{data.name}</Text>
                     <Text>{data.description}</Text>
+                    <View style={styles.actionBottom}>
+                        <TouchableOpacity onPress={naigateTourGuide}>
+                            <Image style={styles.bottomImage} source={require('../../assets/tourguide.png')} />
+                        </TouchableOpacity>
+                        <Image style={styles.bottomImage} source={require('../../assets/lokasi.png')} />
+                    </View>
                 </View>
             </View>
         </View>
@@ -31,7 +41,7 @@ const styles = StyleSheet.create({
         width,
         zIndex: -9999
     },
-    containerView:{
+    containerView: {
         height: height * .5,
         width,
         backgroundColor: 'white',
@@ -45,5 +55,18 @@ const styles = StyleSheet.create({
         fontSize: 20,
         fontWeight: '800',
         marginBottom: 20
+    },
+    bottomImage: {
+        height: 50,
+        width: 50
+    },
+    actionBottom: {
+        flexDirection: 'row',
+        justifyContent: 'space-around',
+        position: 'absolute',
+        bottom: 0,
+        width: width * .9,
+        height: height * .2,
+        backgroundColor: 'white'
     }
 })

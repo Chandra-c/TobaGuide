@@ -11,6 +11,8 @@ import ForgotPassword from '../screens/auth/ForgotPassword'
 import Home from '../screens/destination/Home'
 import DetailDestination from '../screens/destination/DetailDestination'
 import ListDestination from '../screens/destination/ListDestination'
+import TourGuide from '../screens/guide/TourGuide'
+import Messenger from '../screens/guide/Messenger'
 
 function Stack() {
   const PrivateStack = createStackNavigator();
@@ -27,6 +29,8 @@ function Stack() {
         <PrivateStack.Screen name="Home" component={Home} />
         <PrivateStack.Screen name="ListDestination" component={ListDestination} />
         <PrivateStack.Screen name="DetailDestination" component={DetailDestination} />
+        <PrivateStack.Screen name="TourGuide" component={TourGuide} />
+        <PrivateStack.Screen name="Messenger" component={Messenger} />
       </PrivateStack.Navigator>
     </NavigationContainer>
   );
